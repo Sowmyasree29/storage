@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th,tr,td{
+        border:1px solid black;
+        border-collapse:collapse;
+    }
+    #name{
+        margin:10px;
+    }
+    #btn{
+        margin:10px;
+    }
+</style>
+<body>
+    <form action="">
+        <label for="name">Enter name</label>
+        <input type="text" id="name"><br>
+        <label for="password">Enter password</label>
+        <input type="text" id="password"><br>
+        <button id="btn">submit</button>
+
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+    </table>
+</body>
+<script>
+   document.addEventListener('DOMContentLoaded', (event) => {
+    function storing(e) {
+        e.preventDefault();
+        let inp1 = document.getElementById('name').value;
+        let inp2 = document.getElementById('password').value;
+        
+        localStorage.setItem(inp1, inp2)
+        let table=document.querySelector('table')
+        let tr=document.createElement('tr')
+        table.appendChild(tr)
+        let td1=document.createElement('td')
+        tr.appendChild(td1)
+        td1.innerHTML=`${inp1}`
+        let td2=document.createElement('td')
+        tr.appendChild(td2)
+        td2.innerHTML=`${inp2}`
+
+        
+        
+    }
+
+    let btn = document.getElementById('btn');
+    btn.addEventListener("click", storing);
+});
+
+
+</script>
+</html>
